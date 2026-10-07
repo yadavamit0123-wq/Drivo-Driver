@@ -77,7 +77,7 @@ class _LoaderPageState extends State<LoaderPage> with WidgetsBindingObserver {
                 backgroundColor:
                     (context.read<LoaderBloc>().locationApproved == null ||
                             context.read<LoaderBloc>().locationApproved == true)
-                        ? Theme.of(context).primaryColor
+                        ? AppColors.splashBackground
                         : Theme.of(context).scaffoldBackgroundColor,
                 resizeToAvoidBottomInset: false,
                 body: Padding(
@@ -86,15 +86,10 @@ class _LoaderPageState extends State<LoaderPage> with WidgetsBindingObserver {
                     child: (context.read<LoaderBloc>().locationApproved ==
                                 null ||
                             context.read<LoaderBloc>().locationApproved == true)
-                        ? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                AppImages.loader,
-                                width: size.width * 0.51,
-                                height: size.height * 0.51,
-                              )
-                            ],
+                        ? Image.asset(
+                            AppImages.loader,
+                            width: size.width * 0.55,
+                            fit: BoxFit.contain,
                           )
                         : (context.read<LoaderBloc>().locationApproved == false)
                             ? Column(
